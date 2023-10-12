@@ -1,0 +1,19 @@
+.commentList {
+    flex: 1;
+    margin-right: auto;
+    min-height: 30px;
+    max-height: auto;
+    border-radius: 10px;
+    padding: 7px;
+    word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+
+.commentElement {
+    display: flex;
+    justify-content: space-between;
+}

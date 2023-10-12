@@ -1,0 +1,40 @@
+.targetTaskConfigWrapper {
+    width: 700px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 90vh;
+    overflow: scroll;
+    padding: 15px;
+}
+
+@media(max-width:900px) {
+    .targetTaskConfigWrapper {
+        width: 500px;
+    }
+}
+
+@media(max-width:650px) {
+    .targetTaskConfigWrapper {
+        width: 300px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width:450px) {
+    .targetTaskConfigWrapper {
+        width: 200px;
+        font-size: 12px;
+    }
+}
+
+.dropzone {
+    width: 150px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-style: dotted;
+}

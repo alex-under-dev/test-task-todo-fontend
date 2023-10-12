@@ -1,0 +1,43 @@
+.infTaskModalWrapper {
+    width: 700px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: 90vh;
+    overflow: scroll;
+    padding: 15px;
+}
+
+@media(max-width:900px) {
+    .infTaskModalWrapper {
+        width: 500px;
+    }
+}
+
+@media(max-width:650px) {
+    .infTaskModalWrapper {
+        width: 300px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width:450px) {
+    .infTaskModalWrapper {
+        width: 200px;
+        font-size: 12px;
+    }
+}
+
+
+.infTaskModalButtonBlock {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.infTaskModalComments {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

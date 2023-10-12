@@ -1,0 +1,19 @@
+.modalOverlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.modalContent {
+    padding: 16px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    border-radius: 10px;
+}

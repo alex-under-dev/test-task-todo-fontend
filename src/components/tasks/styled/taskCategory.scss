@@ -1,0 +1,16 @@
+.taskCategoryWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px
+}
+
+.taskCategoryHeader {
+    margin: 0 auto 0;
+    font-weight: 700;
+}
+
+@media(max-width:400px) {
+    .taskCategoryHeader {
+        font-size: 10px;
+    }
+}

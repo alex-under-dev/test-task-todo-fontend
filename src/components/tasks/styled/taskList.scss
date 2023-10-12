@@ -1,0 +1,52 @@
+.taskListWrapper {
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.taskListHeader {
+    margin: 0 auto 0;
+    display: flex;
+    justify-content: center;
+    margin: 30px
+}
+
+.taskListContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 100vw;
+    gap: 15px;
+    padding: 30px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+    width: 1000px;
+}
+
+@media(max-width:1100px) {
+    .taskListContainer {
+        width: 700px;
+    }
+}
+
+@media(max-width:750px) {
+    .taskListContainer {
+        width: 500px;
+    }
+}
+
+@media(max-width:750px) {
+    .taskListContainer {
+        width: 500px;
+    }
+}
+
+@media(max-width:750px) {
+    .taskListContainer {
+        width: 300px;
+        padding: 10px;
+    }
+}
