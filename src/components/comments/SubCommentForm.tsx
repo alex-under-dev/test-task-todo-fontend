@@ -22,11 +22,9 @@ export const SubCommentForm = ({ commentId, taskId }: Props) => {
 
     return (
         <form
-            onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault()
-                    handleForm()
-                }
+            onSubmit={(e) => {
+                e.preventDefault()
+                handleForm()
             }}
             className="subCommentFormContainer">
             <textarea

@@ -42,7 +42,8 @@ export const TargetTaskConfig = () => {
     }, []);
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
-    const handleForm = () => {
+    const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         dispatch({
             type: ActionTypes.createSubTask,
             payload: {
@@ -140,21 +141,8 @@ export const TargetTaskConfig = () => {
                     Подзадачи : <Input
                         value={subTaskText}
                         onChange={setSubTaskText}
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                e.preventDefault()
-                                handleForm()
-                            }
-                        }}
                     />
                     <button
-                        onClick={() => dispatch({
-                            type: ActionTypes.createSubTask,
-                            payload: {
-                                text: subTaskText,
-                                taskId: task.id
-                            }
-                        })}
                         type="submit"
                     >Добавить</button>
                 </form>

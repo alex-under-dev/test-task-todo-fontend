@@ -16,7 +16,8 @@ export const CommentForm = () => {
         })
     }
     const [text, setText] = useState('')
-    const handleForm = () => {
+    const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         dispatch({
             type: ActionTypes.createComment,
             payload: {
@@ -36,12 +37,6 @@ export const CommentForm = () => {
                 className="commentFormTextarea"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault()
-                        handleForm()
-                    }
-                }}
             />
             <Button
                 type={'submit'}
