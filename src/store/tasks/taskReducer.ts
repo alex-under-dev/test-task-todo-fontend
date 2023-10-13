@@ -138,6 +138,8 @@ const postFileSaga = function* ({ payload }: { type: ActionTypes, payload: { tas
         const form = new FormData()
         form.append('file', payload.file)
         yield call(axios.post, `/task/${payload.taskId}/upload`, form)
+        const targetTaskId: number = yield select((st: RootState) => st.task.targetTask?.id)
+        yield put({ type: ActionTypes.getOneTask, payload: targetTaskId })
     }
     catch (error) {
         console.error(error)
@@ -146,6 +148,8 @@ const postFileSaga = function* ({ payload }: { type: ActionTypes, payload: { tas
 const deleteFileSaga = function* ({ payload }: { type: ActionTypes, payload: number }) {
     try {
         yield call(axios.delete, `/file/${payload}`)
+        const taskId: number = yield select((st: RootState) => st.task.targetTask?.id)
+        yield put({ type: ActionTypes.getOneTask, payload: taskId })
     }
     catch (error) {
         console.error(error)

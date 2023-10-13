@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../store/store"
 import './styled/targetTaskConfig.scss'
 import { useDropzone } from "react-dropzone"
 import { AiOutlineDelete } from "react-icons/ai"
-import { Button } from "../../ui"
+import { Button, Input } from "../../ui"
 import { MdOutlineModeEditOutline } from "react-icons/md"
 
 const priorityOptions = [
@@ -77,7 +77,8 @@ export const TargetTaskConfig = () => {
                 Номер:{task.id}
             </div>
             <div>
-                Задача: <input value={header} onChange={(e) => setHeader(e.target.value)} />
+                Задача: <Input value={header} onChange={setHeader} />
+
             </div>
 
             <div>
@@ -89,26 +90,34 @@ export const TargetTaskConfig = () => {
                     ))}
                 </select>
             </div>
-            <div>
-                Описание:  <textarea value={text} onChange={(e) => setText(e.target.value)} />
+            <div className="targetTaskConfigElement">
+                Описание:  <textarea
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    className="targetTaskConfigTextarea"
+                />
             </div>
             <div>
                 Файлы:  {!task.files
                     ? 'Отсутствуют'
                     : task.files.map((e) => {
                         return (
-                            <div key={e.id}>
+                            <div className="targetTaskConfigElement" key={e.id}>
                                 {e.original_name}
-                                <button onClick={() => {
-                                    dispatch({
-                                        type: ActionTypes.deleteFile,
-                                        payload: e.id
-                                    })
-                                }}>Удалить</button>
+                                <Button
+                                    text={'удалить'}
+                                    icon={<AiOutlineDelete />}
+                                    onClick={() => {
+                                        dispatch({
+                                            type: ActionTypes.deleteFile,
+                                            payload: e.id
+                                        })
+                                    }}
+                                />
                             </div>
                         )
                     })}
-                <div {...getRootProps()} className="dropzone">
+                <div {...getRootProps()} className="targetTaskConfigDropzone">
                     <input {...getInputProps()} />
                     {isDragActive ? (
                         <p>Отпустите файл ...</p>
@@ -128,9 +137,9 @@ export const TargetTaskConfig = () => {
 
             <div>
                 <form onSubmit={handleForm} >
-                    Подзадачи : <input
+                    Подзадачи : <Input
                         value={subTaskText}
-                        onChange={(e) => setSubTaskText(e.target.value)}
+                        onChange={setSubTaskText}
                         onKeyDown={(e) => {
                             if (e.key === 'Enter') {
                                 e.preventDefault()
@@ -152,7 +161,7 @@ export const TargetTaskConfig = () => {
 
                 {task.sub_tasks.map((e) => {
                     return (
-                        <div key={e.id}>
+                        <div className="targetTaskConfigElement" key={e.id}>
                             <input
                                 type="checkbox"
                                 checked={e.is_completed}
@@ -162,7 +171,13 @@ export const TargetTaskConfig = () => {
                                 })}
                             />
                             {e.text}
-                            < button onClick={() => { dispatch({ type: ActionTypes.deleteSubTask, payload: e.id }) }}>Удалить</button>
+                            <Button
+                                text={'удалить'}
+                                icon={<AiOutlineDelete />}
+                                onClick={() => {
+                                    dispatch({ type: ActionTypes.deleteSubTask, payload: e.id })
+                                }}
+                            />
                         </div>
                     )
                 })}

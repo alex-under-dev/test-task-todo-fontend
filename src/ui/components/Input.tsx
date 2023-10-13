@@ -6,12 +6,13 @@ type Props = {
     value: any,
     onChange: (text: any) => void,
     onBlur?: () => void,
-    onClick?: () => void
-    disabled?: boolean
+    onClick?: () => void,
+    disabled?: boolean,
+    onKeyDown?: (e: any) => void
 }
 
 
-export const Input = React.forwardRef<HTMLInputElement, Props>(({ onClick, placeholder, type, onChange, value, onBlur, disabled = false }, ref) => {
+export const Input = React.forwardRef<HTMLInputElement, Props>(({ onClick, placeholder, type, onChange, value, onBlur, onKeyDown, disabled = false }, ref) => {
     return (
         <>
             <input
@@ -23,6 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, Props>(({ onClick, place
                 onChange={(e) => onChange(e.target.value)}
                 disabled={disabled}
                 onBlur={onBlur}
+                onKeyDown={onKeyDown}
                 className="input"
             />
         </>
